@@ -1,0 +1,17 @@
+.case__rankings {
+  margin-top: 20px;
+  overflow: auto;
+  height: 400px;
+}
+
+.case__rankings tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.case__rankings td {
+  padding: 0.5rem;
+}
+.case__rankings tr:nth-of-type(odd) {
+  background-color: #f6f6f6;
+}

@@ -1,0 +1,45 @@
+.infoBox__card {
+  flex: 1;
+  cursor: pointer;
+}
+
+.infoBox__card:not(:last-child) {
+  margin-right: 15px;
+}
+
+.infoBox--selected {
+  border-top: 10px solid red;
+}
+
+.infoBox--selected:nth-child(2) {
+  border-top: 10px solid #1c9444;
+}
+
+.infoBox__card__content__cases {
+  color: #414141;
+  font-weight: 750;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoBox--selected .infoBox__card__content__cases {
+  color: #d10303;
+}
+
+.infoBox--selected:nth-child(2) .infoBox__card__content__cases {
+  color: #1c9444;
+}
+
+.infoBox__card__content__total {
+  color: #6c757d;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  margin-top: 15px !important;
+}
+
+@media (max-width: 550px) {
+  .infoBox__card:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+} ;
