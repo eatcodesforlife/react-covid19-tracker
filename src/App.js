@@ -41,7 +41,8 @@ function App() {
             const countries = data.map( ({ country, countryInfo }) => (
                 {
                     country,
-                    value: countryInfo.iso2
+                    value: countryInfo.iso2,
+                    id: countryInfo._id
                 }
             ))
 
@@ -117,11 +118,15 @@ function App() {
             >
                 <MenuItem value='WW'>Worldwide</MenuItem>
                 {
-                countries.map( ({country, value}) => (
-                    <MenuItem value={value}>
-                    {country}
-                    </MenuItem>
-                ))
+                    countries.filter(({id}) => id)
+                    .map( ({id, country, value}) => {
+                        return (
+                            <MenuItem key={id} value={value}>
+                            {country}
+                            </MenuItem>
+                            )
+                        }
+                    )
                 }
             </Select>
         </FormControl>

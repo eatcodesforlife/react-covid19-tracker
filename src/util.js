@@ -30,8 +30,7 @@ const circleTypeColors = {
 export const drawCirclesOnMap = (data, dataName='cases') => (
    
   data.filter(({countryInfo}) => countryInfo._id )
-   .map( country => {
-     return (
+   .map( country => (
       <Circle
           key={country.countryInfo._id}
           center={[country.countryInfo.lat, country.countryInfo.long]}
@@ -56,7 +55,6 @@ export const drawCirclesOnMap = (data, dataName='cases') => (
         </Popup>
       </Circle>
     )
-   }
   )
 )
 
