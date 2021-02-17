@@ -27,17 +27,21 @@ const circleTypeColors = {
 
 
 // draw circles on map w/ interactive tooltip
-export const drawCirclesOnMap = (data, dataName='cases') =>  (
-    data.map(country => (
-        <Circle
-            center={[country.countryInfo.lat, country.countryInfo.long]}
-            fillOpacity={0.4}
-            color={circleTypeColors[dataName].hex}
-            fillColor={circleTypeColors[dataName].hex}
-            radius={
-                Math.sqrt(country[dataName]) * circleTypeColors[dataName].multiplier
-            }
-        >
+export const drawCirclesOnMap = (data, dataName='cases') => (
+   
+  data.filter(({countryInfo}) => countryInfo._id )
+   .map( country => {
+     return (
+      <Circle
+          key={country.countryInfo._id}
+          center={[country.countryInfo.lat, country.countryInfo.long]}
+          fillOpacity={0.4}
+          color={circleTypeColors[dataName].hex}
+          fillColor={circleTypeColors[dataName].hex}
+          radius={
+              Math.sqrt(country[dataName]) * circleTypeColors[dataName].multiplier
+          }
+      >
         <Popup>
             <div className='tooltip__container'>
                 <div
@@ -50,7 +54,9 @@ export const drawCirclesOnMap = (data, dataName='cases') =>  (
                 <div className='tooltip__country__deaths'>Deaths: {numeral(country.deaths).format('0,0')}</div>
             </div>
         </Popup>
-
-        </Circle>
-    ))
+      </Circle>
+    )
+   }
+  )
 )
+

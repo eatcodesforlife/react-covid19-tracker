@@ -108,23 +108,23 @@ function App() {
     <div className="app">
      <div className='app__left__container'>
       <div className='app__left__header'>
-            <h1>COVID19 Tracker</h1>
-            <FormControl  className='app__left__header__dropdown'>
-                <Select 
-                    variant='outlined'
-                    value={country}
-                    onChange={onCountryChange}
-                >
-                    <MenuItem value='WW'>Worldwide</MenuItem>
-                    {
-                    countries.map( ({country, value}) => (
-                        <MenuItem value={value}>
-                        {country}
-                        </MenuItem>
-                    ))
-                    }
-                </Select>
-            </FormControl>
+        <h1>COVID19 Tracker</h1>
+        <FormControl  className='app__left__header__dropdown'>
+            <Select 
+                variant='outlined'
+                value={country}
+                onChange={onCountryChange}
+            >
+                <MenuItem value='WW'>Worldwide</MenuItem>
+                {
+                countries.map( ({country, value}) => (
+                    <MenuItem value={value}>
+                    {country}
+                    </MenuItem>
+                ))
+                }
+            </Select>
+        </FormControl>
       </div>
       <div className="app__stats">
         <InfoBox
